@@ -1,1 +1,1 @@
-# rock-paper-scissors
+Demonstrates the use of javascript variables, operators, functions, conditionals, and problem solving.
