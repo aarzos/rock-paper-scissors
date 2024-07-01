@@ -32,9 +32,9 @@ function playGame(){
     let rounds = 0;
 
     // See who wins the round
-function playRound(humanChoice, computerChoice){
+    function playRound(humanChoice, computerChoice){
     let humanSelction = humanChoice.toLowerCase();
-
+    
     if(humanSelction == "rock" && computerChoice == "scissors"){
         humanScore++;
         console.log("You win! Rock beats scissors.");
@@ -68,14 +68,14 @@ function playRound(humanChoice, computerChoice){
         if (humanScore > computerScore){
             console.log(`You win with ${humanScore} points.`);
         } else if(computerScore == humanScore){
-            console.log("It is a tie.")
+            console.log("The game is a tie.")
         } else {
             console.log(`You lost by ${computerScore - humanScore} point(s).`)
         }
     }
-
+    
     getScore();
-
+    
 }
 
 playGame();
