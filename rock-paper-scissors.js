@@ -59,10 +59,10 @@ function playGame(){
 }
 
     // Game control loop.
-    while(rounds < 5) {
-        playRound(getHumanChoice(), getComputerChoice());
-        ++rounds;
-    }
+    // while(rounds < 5) {
+    //     playRound(getHumanChoice(), getComputerChoice());
+    //     ++rounds;
+    // }
 
     function getScore(){
         if (humanScore > computerScore){
@@ -79,3 +79,16 @@ function playGame(){
 }
 
 playGame();
+
+
+const rockBtn = document.createElement('button');
+const paperBtn = document.createElement('button');
+const scissorsBtn = document.createElement('button');
+
+rockBtn.textContent = 'Click me';
+paperBtn.textContent = 'Click me';
+scissorsBtn.textContent = 'Click me';
+
+document.body.appendChild(rockBtn);
+document.body.appendChild(paperBtn);
+document.body.appendChild(scissorsBtn);
