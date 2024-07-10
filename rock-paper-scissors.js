@@ -29,53 +29,60 @@ function getHumanChoice(){
 function playGame(){
     let humanScore = 0;
     let computerScore = 0;
-    let rounds = 0;
 
     // See who wins the round
     function playRound(humanChoice, computerChoice){
-    let humanSelction = humanChoice.toLowerCase();
-    
-    if(humanSelction == "rock" && computerChoice == "scissors"){
-        humanScore++;
-        results.textContent = "You win! Rock beats scissors.";
-    } else if(humanSelction == "paper" && computerChoice == "rock"){
-        humanScore++;
-        results.textContent = "You win! Paper beats rock.";
-    } else if(humanSelction == "scissors" && computerChoice == "paper"){
-        humanScore++;
-        results.textContent = "You win! Scissors beats paper.";
-    } else if(humanSelction == "paper" && computerChoice == "scissors"){
-        computerScore++;
-        results.textContent = "You lose! Scissors beats paper.";
-    } else if(humanSelction == "scissors" && computerChoice == "rock"){
-        computerScore++;
-        results.textContent = "You lose! Rock beats scissors.";
-    } else if(humanSelction == "rock" && computerChoice == "paper"){
-        computerScore++;
-        results.textContent = "You lose! Paper beats rock.";
-    } else {
-        results.textContent = "It is a tie.";
-    }
-}
 
-    // Game control loop.
-    // while(rounds < 5) {
-    //     playRound(getHumanChoice(), getComputerChoice());
-    //     ++rounds;
-    // }
+        if(humanChoice == "rock" && computerChoice == "scissors"){
+            humanScore++;
+            results.textContent = "Rock beats scissors.";
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        } else if(humanChoice == "paper" && computerChoice == "rock"){
+            humanScore++;
+            results.textContent = "Paper beats rock.";
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        } else if(humanChoice == "scissors" && computerChoice == "paper"){
+            humanScore++;
+            results.textContent = "Scissors beats paper.";
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        } else if(humanChoice == "paper" && computerChoice == "scissors"){
+            computerScore++;
+            results.textContent = "Scissors beats paper.";
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        } else if(humanChoice == "scissors" && computerChoice == "rock"){
+            computerScore++;
+            results.textContent = "Rock beats scissors.";
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        } else if(humanChoice == "rock" && computerChoice == "paper"){
+            computerScore++;
+            results.textContent = "Paper beats rock.";
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        } else {
+            results.textContent = `It is a tie.`;
+            score.textContent = `Score: You: ${humanScore} Computer: ${computerScore}`;
+        }
+
+        if(humanScore == 5 || computerScore == 5) {
+            getScore();
+            humanScore = 0;
+            computerScore = 0;
+        }
+
+    }
 
     function getScore(){
         if (humanScore > computerScore){
-            console.log(`You win with ${humanScore} points.`);
+            score.style.fontWeight = 'bold';
+            score.textContent = `You win with ${humanScore} points.`;
         } else if(computerScore == humanScore){
-            console.log("The game is a tie.")
+            score.style.fontWeight = 'bold';
+            score.textContent = 'The game is a tie.';
         } else {
-            console.log(`You lost by ${computerScore - humanScore} point(s).`)
+            score.style.fontWeight = 'bold';
+            score.textContent = `Computer wins with ${computerScore} points.`;
         }
     }
     
-    getScore();
-
     const rockBtn = document.createElement('button');
     const paperBtn = document.createElement('button');
     const scissorsBtn = document.createElement('button');
@@ -102,7 +109,10 @@ function playGame(){
 
     const results = document.createElement('div');
     document.body.appendChild(results);
-        
+
+    const score = document.createElement('div');
+    document.body.appendChild(score);
+  
 }
 
 playGame();
