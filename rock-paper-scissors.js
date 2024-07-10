@@ -75,20 +75,33 @@ function playGame(){
     }
     
     getScore();
-    
+
+    const rockBtn = document.createElement('button');
+    const paperBtn = document.createElement('button');
+    const scissorsBtn = document.createElement('button');
+
+    rockBtn.textContent = 'Rock';
+    paperBtn.textContent = 'Paper';
+    scissorsBtn.textContent = 'Scissors';
+
+    document.body.appendChild(rockBtn);
+    document.body.appendChild(paperBtn);
+    document.body.appendChild(scissorsBtn);
+
+    rockBtn.addEventListener('click', () => {
+        playRound('rock', getComputerChoice());
+    });
+
+    paperBtn.addEventListener('click', () => {
+        playRound('paper', getComputerChoice());
+    });
+
+    scissorsBtn.addEventListener('click', () => {
+        playRound('scissors', getComputerChoice());
+    });
+        
 }
 
 playGame();
 
 
-const rockBtn = document.createElement('button');
-const paperBtn = document.createElement('button');
-const scissorsBtn = document.createElement('button');
-
-rockBtn.textContent = 'Click me';
-paperBtn.textContent = 'Click me';
-scissorsBtn.textContent = 'Click me';
-
-document.body.appendChild(rockBtn);
-document.body.appendChild(paperBtn);
-document.body.appendChild(scissorsBtn);
